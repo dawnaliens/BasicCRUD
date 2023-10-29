@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 func ExistInArray(target int, array []int) bool {
@@ -22,7 +23,18 @@ func ExistInAnArray(target int, array []int) bool {
 	return false
 }
 
+func Position(arr interface{}, target interface{}) int {
+	array := reflect.ValueOf(arr)
+	for i := 0; i < array.Len(); i++ {
+		v := array.Index(i)
+		if v.Interface() == target {
+			return i
+		}
+	}
+	return -1
+}
+
 func main() {
 	fmt.Println("Hello World")
-	
+
 }
