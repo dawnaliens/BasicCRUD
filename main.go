@@ -34,6 +34,19 @@ func Position(arr interface{}, target interface{}) int {
 	return -1
 }
 
+func Unique(arr []int) []int {
+	arrLen := len(arr) - 1
+	for ; arrLen > 0; arrLen-- {
+		for i := arrLen - 1; i >= 0; i-- {
+			if arr[arrLen] == arr[i] {
+				arr = append(arr[:i], arr[i+1:]...)
+				break
+			}
+		}
+	}
+	return arr
+}
+
 func main() {
 	fmt.Println("Hello World")
 
