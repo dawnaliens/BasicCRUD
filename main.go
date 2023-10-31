@@ -47,6 +47,17 @@ func Unique(arr []int) []int {
 	return arr
 }
 
+func Unique2(arr []int) []int {
+	left := 0
+	for right := 1; right < len(arr); right++ {
+		if arr[left] != arr[right] {
+			left++
+			arr[left] = arr[right]
+		}
+	}
+	return arr[:left+1]
+}
+
 func main() {
 	fmt.Println("Hello World")
 
